@@ -1,6 +1,10 @@
 <?php
 // SQLite database file path
 $db_file = __DIR__ . '/../camellibrary.sqlite';
+// If running from lesson2 folder, adjust path if needed
+if (!file_exists($db_file)) {
+    $db_file = __DIR__ . '/../camellibrary.sqlite'; // fallback, but should exist now
+}
 
 try {
     $pdo = new PDO("sqlite:$db_file");
