@@ -15,11 +15,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <?php include 'templates/header.php'; ?>
-<h2>Register</h2>
-<?php if($message) echo "<p>$message</p>"; ?>
-<form method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Register</button>
-</form>
+<div class="auth-container">
+    <h2><i class="fas fa-user-plus" style="color: var(--primary-color);"></i> Join Library</h2>
+    <?php if($message): ?>
+        <div class="alert" style="background: #f0f9ff; color: #075985; margin-bottom: 1rem; padding: 0.75rem;">
+            <?php echo $message; ?>
+        </div>
+    <?php endif; ?>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required autofocus>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Create Account</button>
+    </form>
+    <p style="margin-top: 1.5rem; font-size: 0.875rem; color: var(--text-muted);">
+        Already have an account? <a href="login.php">Login here</a>
+    </p>
+</div>
 <?php include 'templates/footer.php'; ?>
